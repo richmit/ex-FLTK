@@ -1,0 +1,37 @@
+# data file for the Fltk User Interface Designer (fluid)
+version 1.0104 
+header_name {.h} 
+code_name {.cxx}
+decl {\#include <stdio.h>} {} 
+
+decl {\#include <stdlib.h>} {} 
+
+Function {butCB(Fl_Widget *w, void *ud)} {C return_type void
+} {
+  code {printf("Hello, World!\\n");} {}
+} 
+
+Function {quitButCB(Fl_Widget *w, void *ud)} {open C return_type void
+} {
+  code {printf("Exit!\\n");
+exit(1);} {}
+} 
+
+Function {} {open
+} {
+  Fl_Window {} {
+    label {hello non-oo version} open
+    xywh {427 139 276 160} type Double visible
+  } {
+    Fl_Button {} {
+      label {a botton}
+      callback butCB
+      xywh {95 25 100 25}
+    }
+    Fl_Return_Button {} {
+      label Quit
+      callback quitButCB
+      xywh {135 85 90 35}
+    }
+  }
+} 
