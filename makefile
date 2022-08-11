@@ -30,8 +30,10 @@
 
 ################################################################################################################################################################
 
+# Adjust the path to FLUID as approprate (examples for OSX, Linux, & Windows MSYS2)
 FLUID = /Applications/DarwinPorts/fltk/fluid
 FLUID = /usr/bin/fluid
+FLUID = /mingw64/bin/fluid
 
 XGLL = -lGLU -lGL
 
@@ -65,25 +67,25 @@ clean :
 ########################################################################################################################
 
 minimalFLTK : minimalFLTK.cpp $(SPECDEP)
-	$(CXX) $(CXXFLAGS) $(LDFLAGS) minimalFLTK.cpp -o minimalFLTK
+	$(CXX) $(CXXFLAGS) minimalFLTK.cpp $(LDFLAGS) -o minimalFLTK
 
 mainWinCallback : mainWinCallback.cpp $(SPECDEP)
-	$(CXX) $(CXXFLAGS) $(LDFLAGS) mainWinCallback.cpp -o mainWinCallback
+	$(CXX) $(CXXFLAGS) mainWinCallback.cpp $(LDFLAGS) -o mainWinCallback
 
 simpleButton : simpleButton.cpp $(SPECDEP)
-	$(CXX) $(CXXFLAGS) $(LDFLAGS) simpleButton.cpp -o simpleButton
+	$(CXX) $(CXXFLAGS) simpleButton.cpp  $(LDFLAGS) -o simpleButton
 
 simpleButtonOO : simpleButtonOO.cpp $(SPECDEP)
-	$(CXX) $(CXXFLAGS) $(LDFLAGS) simpleButtonOO.cpp -o simpleButtonOO
+	$(CXX) $(CXXFLAGS) simpleButtonOO.cpp  $(LDFLAGS) -o simpleButtonOO
 
 glutWithFltk : glutWithFltk.cpp $(SPECDEP)
-	$(CXX) $(CXXFLAGS) $(LDFLAGS) glutWithFltk.cpp -o glutWithFltk
+	$(CXX) $(CXXFLAGS) glutWithFltk.cpp  $(LDFLAGS) -o glutWithFltk
 
 glutWithFltkInput : glutWithFltkInput.cpp $(SPECDEP)
-	$(CXX) $(CXXFLAGS) $(LDFLAGS) glutWithFltkInput.cpp -o glutWithFltkInput
+	$(CXX) $(CXXFLAGS) glutWithFltkInput.cpp  $(LDFLAGS) -o glutWithFltkInput
 
 simpleFluid.cpp : simpleFluid.fl $(SPECDEP)
 	$(FLUID) -c -o simpleFluid.cpp -h simpleFluid.h simpleFluid.fl
 
 simpleFluid : simpleFluid.cpp simpleFluid.h  $(SPECDEP)
-	$(CXX) $(CXXFLAGS) $(LDFLAGS) simpleFluid.cpp -o simpleFluid
+	$(CXX) $(CXXFLAGS) simpleFluid.cpp  $(LDFLAGS) -o simpleFluid
